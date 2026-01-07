@@ -7,16 +7,22 @@ import TaskList from './component/TaskList'
 function App() {
   const [tasks, setTasks] = useState([]);
 
-  const handleAddTask = () => {
-
+  const handleAddTask = (title) => {
+    setTasks(prev => [
+      ...prev, 
+      {
+        id: Date.now(),
+        title,
+        completed: false
+      }
+    ]);
   }
 
   return (
     <>
       <Header />
       <TaskInput onAddTask = {handleAddTask} />  
-      <TaskItem />
-      <TaskList />
+      <TaskList tasks = {tasks} />
     </>
   )
 }
