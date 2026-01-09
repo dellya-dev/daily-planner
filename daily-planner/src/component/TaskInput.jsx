@@ -8,6 +8,7 @@ function TaskInput({ onAddTask }) {
       <input 
         type="text" 
         placeholder="Typing Your Task" 
+        value= {inputValue}
         onChange={ (e) => setInputValue(e.target.value)}
         />
       <button 

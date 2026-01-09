@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Header from './component/Header'
 import TaskInput from './component/TaskInput'
-import TaskItem from './component/TaskItem'
 import TaskList from './component/TaskList'
 
 function App() {
@@ -18,11 +17,31 @@ function App() {
     ]);
   }
 
+  function toggleTask(id) {
+    setTasks(prev => 
+      prev.map(task =>
+        task.id === id
+        ? {...task, completed : !task.completed}
+        : task
+      )
+    );
+  }
+
+  function deleteTask(id) {
+    setTasks(prev =>
+      prev.filter(task => task.id !== id)
+    );
+  }
+
   return (
     <>
       <Header />
       <TaskInput onAddTask = {handleAddTask} />  
-      <TaskList tasks = {tasks} />
+      <TaskList 
+        tasks = {tasks} 
+        onToggleTask = {toggleTask} 
+        onDeleteTask = {deleteTask}
+      />
     </>
   )
 }
