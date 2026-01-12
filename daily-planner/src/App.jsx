@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './component/Header'
 import TaskInput from './component/TaskInput'
 import TaskList from './component/TaskList'
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const stored = localStorage.getItem('tasks');
+    return stored ? JSON.parse(stored) : [];
+  });
+    
+   useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
 
-  const handleAddTask = (title) => {
+  function addTask(title) {
+    if (!title.trim()) return;
+
     setTasks(prev => [
       ...prev, 
       {
@@ -36,7 +45,7 @@ function App() {
   return (
     <>
       <Header />
-      <TaskInput onAddTask = {handleAddTask} />  
+      <TaskInput onAddTask = {addTask} />  
       <TaskList 
         tasks = {tasks} 
         onToggleTask = {toggleTask} 
