@@ -14,7 +14,9 @@ function App() {
   }, [tasks]);
 
   function addTask(title) {
-    if (!title.trim()) return;
+    const trimedTitle = title.trim();
+    
+    if (!trimedTitle.trim()) return;
 
     setTasks(prev => [
       ...prev, 
