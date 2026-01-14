@@ -2,12 +2,27 @@ import { useEffect, useState } from 'react'
 import Header from './component/Header'
 import TaskInput from './component/TaskInput'
 import TaskList from './component/TaskList'
+import FilterBar from './component/FilterBar';
 
 function App() {
   const [tasks, setTasks] = useState(() => {
     const stored = localStorage.getItem('tasks');
     return stored ? JSON.parse(stored) : [];
   });
+
+  const [filter, setFilter] = useState('all');
+
+  const filteredTasks = tasks.filter((task) => {
+  if (filter === "active") {
+    return task.completed === false;
+  }
+
+  if (filter === "completed") {
+    return task.completed === true;
+  }
+
+  return true; 
+});
     
    useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -15,8 +30,8 @@ function App() {
 
   function addTask(title) {
     const trimedTitle = title.trim();
-    
-    if (!trimedTitle.trim()) return;
+
+    if (!trimedTitle) return;
 
     setTasks(prev => [
       ...prev, 
@@ -47,9 +62,15 @@ function App() {
   return (
     <>
       <Header />
-      <TaskInput onAddTask = {addTask} />  
+      <TaskInput 
+        onAddTask = {addTask} 
+      />  
+      <FilterBar 
+        filter = {filter}
+        setFilter = {setFilter}
+      />
       <TaskList 
-        tasks = {tasks} 
+        tasks = {filteredTasks} 
         onToggleTask = {toggleTask} 
         onDeleteTask = {deleteTask}
       />

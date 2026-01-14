@@ -15,7 +15,7 @@ function TaskInput({ onAddTask }) {
         onClick={ () => {
           onAddTask(inputValue);
           setInputValue('');
-        }}
+        }} 
       >Add</button>
     </div>
   );
