@@ -1,10 +1,14 @@
 function TaskItem({ task, onToggle, onDelete }) {
+
+  const handleToggle = () => onToggle(task.id)
+
+  const handleDelete = () => onDelete(task.id)
   return (
     <>
       <input
         type="checkbox"
         checked={task.completed}
-        onChange={() => onToggle(task.id)}
+        onChange={handleToggle}
       />
        <span
         style={{
@@ -13,7 +17,7 @@ function TaskItem({ task, onToggle, onDelete }) {
       >
         {task.title}
       </span>
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </>
   );
 }

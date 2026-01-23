@@ -2,6 +2,13 @@ import { useState } from "react";
 
 function TaskInput({ onAddTask }) {
   const [inputValue, setInputValue] = useState ('');
+
+  const handleInput = (e) => setInputValue(e.target.value)
+
+  const handleAdd = () => {
+          onAddTask(inputValue);
+          setInputValue('');
+        }
   
   return (
     <div>
@@ -9,13 +16,10 @@ function TaskInput({ onAddTask }) {
         type="text" 
         placeholder="Typing Your Task" 
         value= {inputValue}
-        onChange={ (e) => setInputValue(e.target.value)}
+        onChange={handleInput}
         />
       <button 
-        onClick={ () => {
-          onAddTask(inputValue);
-          setInputValue('');
-        }} 
+        onClick={handleAdd} 
       >Add</button>
     </div>
   );
