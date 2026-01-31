@@ -1,17 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export function useTasks() {
-  const [tasks, setTasks] = useState(() => {
-      const stored = localStorage.getItem('tasks');
-      return stored ? JSON.parse(stored) : [];
-    });
-  
-    const [filter, setFilter] = useState('all');
-  
-  
-    useEffect(() => {
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }, [tasks]);
+export function useTasks(initialTasks = []) {
+  const [tasks, setTasks] = useState(initialTasks);
   
     function addTask(title) {
       const trimedTitle = title.trim();
@@ -22,7 +12,7 @@ export function useTasks() {
         ...prev,
         {
           id: Date.now(),
-          title,
+          title: trimedTitle,
           completed: false
         }
       ]);
@@ -43,23 +33,9 @@ export function useTasks() {
         prev.filter(task => task.id !== id)
       );
     }
-  
-    const filteredTasks = tasks.filter((task) => {
-      if (filter === "active") {
-        return task.completed === false;
-      }
-  
-      if (filter === "completed") {
-        return task.completed === true;
-      }
-  
-      return true;
-    });
 
     return {
-      tasks: filteredTasks,
-      filter,
-      setFilter,
+      tasks,
       addTask, 
       toggleTask,
       deleteTask
