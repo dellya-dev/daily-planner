@@ -1,4 +1,4 @@
-# Todo App
+# Daily Planner
 
 A simple Daily Planner application built to practice state management and component architecture.
 
