@@ -1,0 +1,92 @@
+/* Reset kecil */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: #f5f6f8;
+}
+
+/* Container utama */
+.app {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Title */
+.app h1 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* Input section */
+.task-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.task-input button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+}
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Task item */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.task-item span {
+  flex: 1;
+}
+
+/* Buttons inside task */
+.task-item button {
+  margin-left: 6px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

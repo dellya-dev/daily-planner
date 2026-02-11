@@ -1,8 +1,10 @@
+import '../App.css';
+
 import './FilterBar.css'
 
 function FilterBar({ filter, setFilter }) {
   return (
-    <div>
+    <div className="filter-bar">
       <button 
         className={filter === 'all' ? 'active' : ''}
         onClick={() => setFilter ('all') }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import '../App.css';
 
 function TaskInput({ onAddTask }) {
   const [inputValue, setInputValue] = useState ('');
@@ -11,7 +12,7 @@ function TaskInput({ onAddTask }) {
         }
   
   return (
-    <div>
+    <div className="task-input">
       <input 
         type="text" 
         placeholder="Typing Your Task" 

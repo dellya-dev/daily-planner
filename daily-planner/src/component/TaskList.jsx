@@ -5,7 +5,7 @@ function TaskList({ tasks, onToggleTask, onDeleteTask }) {
     return <p>No tasks yet</p>
   }
   return (
-    <ul>
+    <>
       {tasks.map(task => (
         <TaskItem
           key={task.id}
@@ -14,7 +14,7 @@ function TaskList({ tasks, onToggleTask, onDeleteTask }) {
           onDelete={onDeleteTask}
         />
       ))}
-    </ul>
+    </>
   );
 }
 

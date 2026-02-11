@@ -1,11 +1,14 @@
+import '../App.css';
+
 function TaskItem({ task, onToggle, onDelete }) {
 
   const handleToggle = () => onToggle(task.id)
 
   const handleDelete = () => onDelete(task.id)
   return (
-    <>
-      <input
+    <ul className="task-list">
+      <li className="task-item completed">
+        <input
         type="checkbox"
         checked={task.completed}
         onChange={handleToggle}
@@ -18,7 +21,8 @@ function TaskItem({ task, onToggle, onDelete }) {
         {task.title}
       </span>
       <button onClick={handleDelete}>Delete</button>
-    </>
+      </li>
+    </ul>
   );
 }
 
