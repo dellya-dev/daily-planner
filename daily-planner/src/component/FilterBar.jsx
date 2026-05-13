@@ -1,5 +1,4 @@
 import '../App.css';
-
 import './FilterBar.css'
 
 function FilterBar({ filter, setFilter }) {
