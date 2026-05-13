@@ -59,6 +59,14 @@ body {
   margin-bottom: 20px;
 }
 
+.no-tasks-yet {
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  
+}
+
 /* List */
 .task-list {
   list-style: none;
@@ -90,3 +98,5 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+
