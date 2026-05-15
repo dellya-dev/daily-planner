@@ -24,16 +24,8 @@ A simple Daily Planner application built to practice state management and compon
 > Add your live demo link here
 
 ```
-https://dellya-dev.github.io/daily-planner/
+[https://dellya-dev.github.io/daily-planner/](https://daily-planner-iota-one.vercel.app/)
 ```
-## How to Run Locally
-
-1. Clone the repository
-
-   ```bash
-   git clone https://github.com/dellya-dev/daily-planner.git
-   ```
-2. Open `index.html` in your browser
 
 ## Screenshot
 
