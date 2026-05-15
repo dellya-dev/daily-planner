@@ -24,7 +24,7 @@ A simple Daily Planner application built to practice state management and compon
 > Add your live demo link here
 
 ```
-[https://dellya-dev.github.io/daily-planner/](https://daily-planner-iota-one.vercel.app/)
+https://daily-planner-iota-one.vercel.app/
 ```
 
 ## Screenshot
